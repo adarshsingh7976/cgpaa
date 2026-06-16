@@ -1,125 +1,360 @@
-<section class="hero">
-  <div class="hero-content">
-    <h1>🎓 GradeCalc</h1>
-    <p>Calculate Your SGPA Instantly & Accurately</p>
-    <a href="#calculator" class="btn">Get Started</a>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GradeCalc | SGPA Calculator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-  background:#f5f7ff;
+background:#f5f7ff;
+color:#333;
 }
 
 .hero{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-  background:
-  linear-gradient(135deg,#2563eb,#7c3aed);
+height:100vh;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+color:white;
 }
 
-.hero-content{
-  color:white;
+.hero-content h1{
+font-size:5rem;
+font-weight:700;
 }
 
-.hero h1{
-  font-size:5rem;
-  font-weight:700;
-  margin-bottom:15px;
-}
-
-.hero p{
-  font-size:1.3rem;
-  margin-bottom:30px;
+.hero-content p{
+font-size:1.3rem;
+margin:20px 0;
 }
 
 .btn{
-  display:inline-block;
-  padding:15px 35px;
-  background:white;
-  color:#2563eb;
-  text-decoration:none;
-  border-radius:50px;
-  font-weight:600;
-  transition:.3s;
+display:inline-block;
+padding:15px 35px;
+background:white;
+color:#2563eb;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+transition:.3s;
 }
 
 .btn:hover{
-  transform:translateY(-5px);
+transform:translateY(-5px);
+}
+
+.section-title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:40px;
+color:#1e293b;
+}
+
+.features{
+padding:80px 8%;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.calculator{
+padding:80px 8%;
+background:white;
+}
+
+.calc-box{
+max-width:900px;
+margin:auto;
+background:#fff;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th{
+background:#2563eb;
+color:white;
+}
+
+th,td{
+padding:12px;
+text-align:center;
+border:1px solid #ddd;
+}
+
+input,select{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:50px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+font-weight:600;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.result{
+text-align:center;
+margin-top:25px;
+font-size:2rem;
+font-weight:700;
+color:#2563eb;
+}
+
+.about{
+padding:80px 8%;
+background:#eef2ff;
+text-align:center;
+}
+
+.about p{
+max-width:800px;
+margin:auto;
+line-height:1.8;
+}
+
+.contact{
+padding:80px 8%;
+text-align:center;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:3rem;
+}
+
+.hero-content p{
+font-size:1rem;
+}
+
 }
 </style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="hero-content">
+<h1>🎓 GradeCalc</h1>
+<p>Calculate Your SGPA Instantly & Accurately</p>
+<a href="#calculator" class="btn">Get Started</a>
+</div>
+</section>
+
 <section class="features">
+
+<h2 class="section-title">Why Choose GradeCalc?</h2>
+
+<div class="feature-grid">
 
 <div class="card">
 <h3>⚡ Instant Calculation</h3>
-<p>Calculate SGPA in seconds.</p>
+<p>Calculate your SGPA within seconds.</p>
 </div>
 
 <div class="card">
 <h3>📊 Accurate Results</h3>
-<p>Credit based calculations.</p>
+<p>Credit-based grade calculation.</p>
 </div>
 
 <div class="card">
-<h3>📱 Responsive Design</h3>
-<p>Works on mobile & desktop.</p>
+<h3>📱 Mobile Friendly</h3>
+<p>Works perfectly on all devices.</p>
 </div>
 
 <div class="card">
-<h3>🎯 Student Friendly</h3>
-<p>Simple and easy to use.</p>
+<h3>🎯 Student Focused</h3>
+<p>Built specially for students.</p>
+</div>
+
+</div>
+</section>
+
+<section class="calculator" id="calculator">
+
+<h2 class="section-title">SGPA Calculator</h2>
+
+<div class="calc-box">
+
+<table id="gradeTable">
+
+<tr>
+<th>Subject</th>
+<th>Credits</th>
+<th>Grade</th>
+</tr>
+
+</table>
+
+<div class="buttons">
+<button onclick="addRow()">➕ Add Subject</button>
+<button onclick="calculateSGPA()">📈 Calculate SGPA</button>
+</div>
+
+<div id="result" class="result">
+Your SGPA: --
+</div>
+
 </div>
 
 </section>
 
-<style>
-.features{
-  width:90%;
-  max-width:1200px;
-  margin:80px auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
+<section class="about">
 
-.card{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  transition:.3s;
-}
+<h2 class="section-title">About GradeCalc</h2>
 
-.card:hover{
-  transform:translateY(-10px);
-}
-</style>
+<p>
+GradeCalc is a simple and modern SGPA calculator created to help students calculate their semester grades easily and accurately. Developed by Adarsh Singh, a B.Tech ECE student passionate about programming, web development, and creating useful tools for students.
+</p>
+
+</section>
+
+<section class="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<p><strong>Adarsh Singh</strong></p>
+<p>📧 adarshsingh7976@gmail.com</p>
+
+</section>
+
 <footer>
-  <h3>Made with ❤️ by Adarsh Singh</h3>
-  <p>adarshsingh7976@gmail.com</p>
+<p>Made with ❤️ by Adarsh Singh</p>
 </footer>
 
-<style>
-footer{
-  background:#111827;
-  color:white;
-  text-align:center;
-  padding:40px 20px;
+<script>
+
+function addRow(){
+
+let table=document.getElementById("gradeTable");
+
+let row=table.insertRow();
+
+row.innerHTML=`
+<td><input type="text" placeholder="Subject"></td>
+
+<td><input type="number" min="1" placeholder="Credits"></td>
+
+<td>
+<select>
+<option value="10">O</option>
+<option value="9">E</option>
+<option value="8">A</option>
+<option value="7">B</option>
+<option value="6">C</option>
+<option value="5">D</option>
+<option value="0">F</option>
+</select>
+</td>
+`;
+
 }
 
-footer p{
-  margin-top:10px;
+window.onload=function(){
+
+for(let i=0;i<5;i++){
+addRow();
 }
-</style>
+
+}
+
+function calculateSGPA(){
+
+let table=document.getElementById("gradeTable");
+
+let totalCredits=0;
+let totalPoints=0;
+
+for(let i=1;i<table.rows.length;i++){
+
+let credits=Number(table.rows[i].cells[1].children[0].value)||0;
+
+let grade=Number(table.rows[i].cells[2].children[0].value)||0;
+
+totalCredits+=credits;
+totalPoints+=credits*grade;
+
+}
+
+if(totalCredits===0){
+
+document.getElementById("result").innerHTML=
+"Enter valid credits";
+
+return;
+
+}
+
+let sgpa=totalPoints/totalCredits;
+
+document.getElementById("result").innerHTML=
+"🎓 Your SGPA: "+sgpa.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
