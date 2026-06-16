@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ScoreSphere | Premium SGPA Calculator</title>
+
+<title>ScoreSphere | Student Academic Toolkit</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -33,7 +36,7 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:20px 8%;
+padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -84,7 +87,7 @@ margin-bottom:20px;
 
 .hero p{
 font-size:1.2rem;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 .hero-btn{
@@ -92,8 +95,8 @@ display:inline-block;
 padding:15px 35px;
 background:white;
 color:#2563eb;
-border-radius:50px;
 text-decoration:none;
+border-radius:50px;
 font-weight:600;
 transition:.3s;
 }
@@ -204,14 +207,23 @@ margin-top:20px;
 .performance{
 text-align:center;
 margin-top:10px;
-font-size:1.2rem;
+font-size:1.1rem;
 }
 
-.about{
-max-width:900px;
-margin:auto;
-text-align:center;
-line-height:1.8;
+.history-box{
+background:white;
+padding:25px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.dark .history-box{
+background:#1e1e1e;
+}
+
+.history-box ul{
+padding-left:20px;
 }
 
 footer{
@@ -234,13 +246,19 @@ font-size:1rem;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <nav>
+
 <div class="logo">🎓 ScoreSphere</div>
-<button class="toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+<button class="toggle" onclick="toggleDarkMode()">
+🌙 Dark Mode
+</button>
+
 </nav>
 
 <section class="hero">
@@ -249,9 +267,11 @@ font-size:1rem;
 
 <h1>ScoreSphere</h1>
 
-<p>Your Academic Performance Companion</p>
+<p>Your Complete Academic Performance Companion</p>
 
-<a href="#calculator" class="hero-btn">Get Started</a>
+<a href="#sgpa" class="hero-btn">
+Get Started
+</a>
 
 </div>
 
@@ -259,36 +279,40 @@ font-size:1rem;
 
 <section class="section">
 
-<h2 class="section-title">Why Choose ScoreSphere?</h2>
+<h2 class="section-title">
+Why Choose ScoreSphere?
+</h2>
 
 <div class="features">
 
 <div class="card">
-<h3>⚡ Fast Calculation</h3>
-<p>Calculate your SGPA instantly.</p>
+<h3>📊 SGPA Calculator</h3>
+<p>Calculate semester grades instantly.</p>
 </div>
 
 <div class="card">
-<h3>📊 Accurate Results</h3>
-<p>Credit-based grade calculations.</p>
+<h3>🎓 CGPA Calculator</h3>
+<p>Track your overall academic progress.</p>
 </div>
 
 <div class="card">
-<h3>📱 Responsive Design</h3>
-<p>Works perfectly on mobile and desktop.</p>
+<h3>💾 Save History</h3>
+<p>Store previous calculations automatically.</p>
 </div>
 
 <div class="card">
-<h3>🎯 Student Friendly</h3>
-<p>Clean interface designed for students.</p>
+<h3>📄 PDF Export</h3>
+<p>Download and share your results.</p>
 </div>
 
 </div>
 
 </section>
-<section class="section" id="calculator">
+<section class="section" id="sgpa">
 
-<h2 class="section-title">🎓 SGPA Calculator</h2>
+<h2 class="section-title">
+🎓 SGPA Calculator
+</h2>
 
 <div class="calculator-box">
 
@@ -313,6 +337,10 @@ font-size:1rem;
 📈 Calculate SGPA
 </button>
 
+<button onclick="downloadResult()">
+📄 Download Result
+</button>
+
 </div>
 
 <div class="result" id="result">
@@ -333,17 +361,70 @@ Percentage: --
 
 <section class="section">
 
-<h2 class="section-title">About ScoreSphere</h2>
+<h2 class="section-title">
+📊 CGPA Calculator
+</h2>
 
-<div class="about">
+<div class="calculator-box">
+
+<input
+type="text"
+id="cgpaInput"
+placeholder="Example: 8.2,8.5,8.8,9.1"
+>
+
+<div class="buttons">
+
+<button onclick="calculateCGPA()">
+🎓 Calculate CGPA
+</button>
+
+</div>
+
+<div class="result" id="cgpaResult">
+Your CGPA: --
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+📚 SGPA History
+</h2>
+
+<div class="history-box">
+
+<ul id="historyList">
+
+<li>
+No calculations yet
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+About ScoreSphere
+</h2>
+
+<div class="history-box">
 
 <p>
 
-ScoreSphere is a modern SGPA calculator designed to help students
-calculate academic performance quickly and accurately.
+ScoreSphere is a modern academic toolkit
+built for students who want quick,
+accurate and professional grade calculations.
 
-Built by <strong>Adarsh Singh</strong>, an ECE student passionate about
-technology, programming, and student-focused web applications.
+Created by <strong>Adarsh Singh</strong>,
+B.Tech ECE Student.
 
 </p>
 
@@ -353,15 +434,23 @@ technology, programming, and student-focused web applications.
 
 <section class="section">
 
-<h2 class="section-title">Contact</h2>
+<h2 class="section-title">
+Contact
+</h2>
 
-<div class="about">
+<div class="history-box">
 
-<p><strong>Adarsh Singh</strong></p>
+<p>
+👨‍💻 Adarsh Singh
+</p>
 
-<p>📧 adarshsingh7976@gmail.com</p>
+<p>
+📧 adarshsingh7976@gmail.com
+</p>
 
-<p>🌐 ScoreSphere Academic Calculator</p>
+<p>
+🎓 ScoreSphere Academic Toolkit
+</p>
 
 </div>
 
@@ -369,7 +458,13 @@ technology, programming, and student-focused web applications.
 
 <footer>
 
-<p>Made with ❤️ by Adarsh Singh</p>
+<h3>
+Made with ❤️ by Adarsh Singh
+</h3>
+
+<p>
+ScoreSphere © 2026
+</p>
 
 </footer>
 <script>
@@ -417,11 +512,7 @@ row.innerHTML=`
 }
 
 function removeRow(btn){
-
-let row=btn.parentNode.parentNode;
-
-row.remove();
-
+btn.parentElement.parentElement.remove();
 }
 
 window.onload=function(){
@@ -429,6 +520,8 @@ window.onload=function(){
 for(let i=0;i<5;i++){
 addRow();
 }
+
+loadHistory();
 
 };
 
@@ -442,19 +535,12 @@ let totalPoints=0;
 for(let i=1;i<table.rows.length;i++){
 
 let credits=
-Number(
-table.rows[i].cells[1]
-.children[0].value
-)||0;
+Number(table.rows[i].cells[1].children[0].value)||0;
 
 let grade=
-Number(
-table.rows[i].cells[2]
-.children[0].value
-)||0;
+Number(table.rows[i].cells[2].children[0].value)||0;
 
 totalCredits+=credits;
-
 totalPoints+=credits*grade;
 
 }
@@ -463,12 +549,6 @@ if(totalCredits===0){
 
 document.getElementById("result").innerHTML=
 "Enter valid credits";
-
-document.getElementById("performance").innerHTML=
-"";
-
-document.getElementById("percentage").innerHTML=
-"";
 
 return;
 
@@ -482,29 +562,19 @@ document.getElementById("result").innerHTML=
 let performance="";
 
 if(sgpa>=9){
-
 performance="🌟 Excellent";
-
 }
 else if(sgpa>=8){
-
 performance="⭐ Very Good";
-
 }
 else if(sgpa>=7){
-
 performance="👍 Good";
-
 }
 else if(sgpa>=6){
-
 performance="🙂 Average";
-
 }
 else{
-
 performance="📚 Needs Improvement";
-
 }
 
 document.getElementById("performance").innerHTML=
@@ -514,6 +584,107 @@ let percentage=((sgpa-0.75)*10);
 
 document.getElementById("percentage").innerHTML=
 "Percentage: "+percentage.toFixed(2)+"%";
+
+saveHistory(sgpa.toFixed(2));
+
+}
+
+function calculateCGPA(){
+
+let input=document.getElementById("cgpaInput").value;
+
+if(input.trim()===""){
+return;
+}
+
+let values=input.split(",");
+
+let total=0;
+
+for(let i=0;i<values.length;i++){
+total+=Number(values[i]);
+}
+
+let cgpa=total/values.length;
+
+document.getElementById("cgpaResult").innerHTML=
+"🎓 Your CGPA: "+cgpa.toFixed(2);
+
+}
+
+function saveHistory(value){
+
+let history=
+JSON.parse(localStorage.getItem("sgpaHistory")) || [];
+
+history.unshift(value);
+
+if(history.length>10){
+history.pop();
+}
+
+localStorage.setItem(
+"sgpaHistory",
+JSON.stringify(history)
+);
+
+loadHistory();
+
+}
+
+function loadHistory(){
+
+let history=
+JSON.parse(localStorage.getItem("sgpaHistory")) || [];
+
+let list=
+document.getElementById("historyList");
+
+list.innerHTML="";
+
+if(history.length===0){
+
+list.innerHTML=
+"<li>No calculations yet</li>";
+
+return;
+
+}
+
+history.forEach(item=>{
+
+let li=document.createElement("li");
+
+li.textContent=
+"SGPA: "+item;
+
+list.appendChild(li);
+
+});
+
+}
+
+function downloadResult(){
+
+let text=
+
+document.getElementById("result").innerText+"\n"+
+document.getElementById("performance").innerText+"\n"+
+document.getElementById("percentage").innerText;
+
+let blob=
+new Blob([text],{type:"text/plain"});
+
+let a=
+document.createElement("a");
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+"ScoreSphere_Result.txt";
+
+a.click();
 
 }
 
