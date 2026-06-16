@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GradeCalc | SGPA Calculator</title>
+<title>ScoreSphere | Premium SGPA Calculator</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -17,8 +18,48 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f5f7ff;
+background:#f4f7ff;
 color:#333;
+transition:.3s;
+}
+
+.dark{
+background:#121212;
+color:white;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:white;
+box-shadow:0 4px 20px rgba(0,0,0,.08);
+z-index:1000;
+}
+
+.dark nav{
+background:#1e1e1e;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+color:#2563eb;
+}
+
+.toggle{
+padding:10px 20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#2563eb;
+color:white;
+font-weight:600;
 }
 
 .hero{
@@ -32,43 +73,46 @@ padding:20px;
 color:white;
 }
 
-.hero-content h1{
+.hero-content{
+max-width:800px;
+}
+
+.hero h1{
 font-size:5rem;
-font-weight:700;
+margin-bottom:20px;
 }
 
-.hero-content p{
-font-size:1.3rem;
-margin:20px 0;
+.hero p{
+font-size:1.2rem;
+margin-bottom:30px;
 }
 
-.btn{
+.hero-btn{
 display:inline-block;
 padding:15px 35px;
 background:white;
 color:#2563eb;
-text-decoration:none;
 border-radius:50px;
+text-decoration:none;
 font-weight:600;
 transition:.3s;
 }
 
-.btn:hover{
+.hero-btn:hover{
 transform:translateY(-5px);
+}
+
+.section{
+padding:100px 8%;
 }
 
 .section-title{
 text-align:center;
 font-size:2.5rem;
-margin-bottom:40px;
-color:#1e293b;
+margin-bottom:50px;
 }
 
 .features{
-padding:80px 8%;
-}
-
-.feature-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
@@ -78,27 +122,34 @@ gap:25px;
 background:white;
 padding:30px;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 text-align:center;
 transition:.3s;
+}
+
+.dark .card{
+background:#1e1e1e;
 }
 
 .card:hover{
 transform:translateY(-10px);
 }
 
-.calculator{
-padding:80px 8%;
-background:white;
+.card h3{
+margin-bottom:15px;
 }
 
-.calc-box{
-max-width:900px;
+.calculator-box{
+max-width:1000px;
 margin:auto;
-background:#fff;
+background:white;
 padding:30px;
 border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.dark .calculator-box{
+background:#1e1e1e;
 }
 
 table{
@@ -114,8 +165,8 @@ color:white;
 
 th,td{
 padding:12px;
-text-align:center;
 border:1px solid #ddd;
+text-align:center;
 }
 
 input,select{
@@ -129,8 +180,8 @@ border-radius:8px;
 display:flex;
 justify-content:center;
 gap:15px;
-margin-top:20px;
 flex-wrap:wrap;
+margin-top:20px;
 }
 
 button{
@@ -143,33 +194,24 @@ cursor:pointer;
 font-weight:600;
 }
 
-button:hover{
-background:#1d4ed8;
-}
-
 .result{
 text-align:center;
-margin-top:25px;
 font-size:2rem;
 font-weight:700;
-color:#2563eb;
+margin-top:20px;
+}
+
+.performance{
+text-align:center;
+margin-top:10px;
+font-size:1.2rem;
 }
 
 .about{
-padding:80px 8%;
-background:#eef2ff;
-text-align:center;
-}
-
-.about p{
-max-width:800px;
+max-width:900px;
 margin:auto;
-line-height:1.8;
-}
-
-.contact{
-padding:80px 8%;
 text-align:center;
+line-height:1.8;
 }
 
 footer{
@@ -181,62 +223,74 @@ padding:30px;
 
 @media(max-width:768px){
 
-.hero-content h1{
+.hero h1{
 font-size:3rem;
 }
 
-.hero-content p{
+.hero p{
 font-size:1rem;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
+<nav>
+<div class="logo">🎓 ScoreSphere</div>
+<button class="toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</nav>
+
 <section class="hero">
+
 <div class="hero-content">
-<h1>🎓 GradeCalc</h1>
-<p>Calculate Your SGPA Instantly & Accurately</p>
-<a href="#calculator" class="btn">Get Started</a>
+
+<h1>ScoreSphere</h1>
+
+<p>Your Academic Performance Companion</p>
+
+<a href="#calculator" class="hero-btn">Get Started</a>
+
 </div>
+
 </section>
 
-<section class="features">
+<section class="section">
 
-<h2 class="section-title">Why Choose GradeCalc?</h2>
+<h2 class="section-title">Why Choose ScoreSphere?</h2>
 
-<div class="feature-grid">
+<div class="features">
 
 <div class="card">
-<h3>⚡ Instant Calculation</h3>
-<p>Calculate your SGPA within seconds.</p>
+<h3>⚡ Fast Calculation</h3>
+<p>Calculate your SGPA instantly.</p>
 </div>
 
 <div class="card">
 <h3>📊 Accurate Results</h3>
-<p>Credit-based grade calculation.</p>
+<p>Credit-based grade calculations.</p>
 </div>
 
 <div class="card">
-<h3>📱 Mobile Friendly</h3>
-<p>Works perfectly on all devices.</p>
+<h3>📱 Responsive Design</h3>
+<p>Works perfectly on mobile and desktop.</p>
 </div>
 
 <div class="card">
-<h3>🎯 Student Focused</h3>
-<p>Built specially for students.</p>
+<h3>🎯 Student Friendly</h3>
+<p>Clean interface designed for students.</p>
 </div>
 
 </div>
+
 </section>
+<section class="section" id="calculator">
 
-<section class="calculator" id="calculator">
+<h2 class="section-title">🎓 SGPA Calculator</h2>
 
-<h2 class="section-title">SGPA Calculator</h2>
-
-<div class="calc-box">
+<div class="calculator-box">
 
 <table id="gradeTable">
 
@@ -244,47 +298,85 @@ font-size:1rem;
 <th>Subject</th>
 <th>Credits</th>
 <th>Grade</th>
+<th>Action</th>
 </tr>
 
 </table>
 
 <div class="buttons">
-<button onclick="addRow()">➕ Add Subject</button>
-<button onclick="calculateSGPA()">📈 Calculate SGPA</button>
+
+<button onclick="addRow()">
+➕ Add Subject
+</button>
+
+<button onclick="calculateSGPA()">
+📈 Calculate SGPA
+</button>
+
 </div>
 
-<div id="result" class="result">
+<div class="result" id="result">
 Your SGPA: --
 </div>
 
+<div class="performance" id="performance">
+Performance: --
+</div>
+
+<div class="performance" id="percentage">
+Percentage: --
+</div>
+
 </div>
 
 </section>
 
-<section class="about">
+<section class="section">
 
-<h2 class="section-title">About GradeCalc</h2>
+<h2 class="section-title">About ScoreSphere</h2>
+
+<div class="about">
 
 <p>
-GradeCalc is a simple and modern SGPA calculator created to help students calculate their semester grades easily and accurately. Developed by Adarsh Singh, a B.Tech ECE student passionate about programming, web development, and creating useful tools for students.
+
+ScoreSphere is a modern SGPA calculator designed to help students
+calculate academic performance quickly and accurately.
+
+Built by <strong>Adarsh Singh</strong>, an ECE student passionate about
+technology, programming, and student-focused web applications.
+
 </p>
+
+</div>
 
 </section>
 
-<section class="contact">
+<section class="section">
 
 <h2 class="section-title">Contact</h2>
 
+<div class="about">
+
 <p><strong>Adarsh Singh</strong></p>
+
 <p>📧 adarshsingh7976@gmail.com</p>
+
+<p>🌐 ScoreSphere Academic Calculator</p>
+
+</div>
 
 </section>
 
 <footer>
-<p>Made with ❤️ by Adarsh Singh</p>
-</footer>
 
+<p>Made with ❤️ by Adarsh Singh</p>
+
+</footer>
 <script>
+
+function toggleDarkMode(){
+document.body.classList.toggle("dark");
+}
 
 function addRow(){
 
@@ -293,9 +385,14 @@ let table=document.getElementById("gradeTable");
 let row=table.insertRow();
 
 row.innerHTML=`
-<td><input type="text" placeholder="Subject"></td>
 
-<td><input type="number" min="1" placeholder="Credits"></td>
+<td>
+<input type="text" placeholder="Subject">
+</td>
+
+<td>
+<input type="number" min="1" placeholder="Credits">
+</td>
 
 <td>
 <select>
@@ -308,7 +405,22 @@ row.innerHTML=`
 <option value="0">F</option>
 </select>
 </td>
+
+<td>
+<button onclick="removeRow(this)">
+❌
+</button>
+</td>
+
 `;
+
+}
+
+function removeRow(btn){
+
+let row=btn.parentNode.parentNode;
+
+row.remove();
 
 }
 
@@ -318,7 +430,7 @@ for(let i=0;i<5;i++){
 addRow();
 }
 
-}
+};
 
 function calculateSGPA(){
 
@@ -329,11 +441,20 @@ let totalPoints=0;
 
 for(let i=1;i<table.rows.length;i++){
 
-let credits=Number(table.rows[i].cells[1].children[0].value)||0;
+let credits=
+Number(
+table.rows[i].cells[1]
+.children[0].value
+)||0;
 
-let grade=Number(table.rows[i].cells[2].children[0].value)||0;
+let grade=
+Number(
+table.rows[i].cells[2]
+.children[0].value
+)||0;
 
 totalCredits+=credits;
+
 totalPoints+=credits*grade;
 
 }
@@ -343,6 +464,12 @@ if(totalCredits===0){
 document.getElementById("result").innerHTML=
 "Enter valid credits";
 
+document.getElementById("performance").innerHTML=
+"";
+
+document.getElementById("percentage").innerHTML=
+"";
+
 return;
 
 }
@@ -351,6 +478,42 @@ let sgpa=totalPoints/totalCredits;
 
 document.getElementById("result").innerHTML=
 "🎓 Your SGPA: "+sgpa.toFixed(2);
+
+let performance="";
+
+if(sgpa>=9){
+
+performance="🌟 Excellent";
+
+}
+else if(sgpa>=8){
+
+performance="⭐ Very Good";
+
+}
+else if(sgpa>=7){
+
+performance="👍 Good";
+
+}
+else if(sgpa>=6){
+
+performance="🙂 Average";
+
+}
+else{
+
+performance="📚 Needs Improvement";
+
+}
+
+document.getElementById("performance").innerHTML=
+"Performance: "+performance;
+
+let percentage=((sgpa-0.75)*10);
+
+document.getElementById("percentage").innerHTML=
+"Percentage: "+percentage.toFixed(2)+"%";
 
 }
 
